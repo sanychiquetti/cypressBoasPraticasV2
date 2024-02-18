@@ -28,6 +28,10 @@ describe('Dependent tests bad practice', () => {
 
     cy.contains('Delete').click()
 
+    cy.get('.list-group a')
+      .its('length')
+      .should('be.at.least', 1)
+
     cy.get('.list-group:contains(My note updated)').should('not.exist')
   })
 })
